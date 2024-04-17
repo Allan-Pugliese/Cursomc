@@ -36,7 +36,6 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	// Verificar captura de erros
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody CategoriaDTO objDto) {
 		Categoria obj = service.fromDTO(objDto);
