@@ -2,20 +2,38 @@ package com.allan.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.allan.cursomc.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	@Length(min = 4, max = 120, message = "O tamanho deve ter em 4 a 120 caracteres")
 	private String nome;
-	private String email;
-	private String cpfOuCnpj;
-	private Integer tipo;
 
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	@Email(message = "Email inválido")
+	private String email;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
+	private String cpfOuCnpj;
+
+	private Integer tipo;
 	private String logradouro;
 	private String numero;
 	private String complemento;
 	private String bairro;
+
+	@NotEmpty(message = "Preenchimento Obrigatório")
 	private String cep;
 
+	@NotEmpty(message = "Preenchimento Obrigatório")
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
