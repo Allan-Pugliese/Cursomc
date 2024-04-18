@@ -44,7 +44,6 @@ public class CategoriaResource {
 		return ResponseEntity.created(uri).build();
 	}
 
-	// Verificar captura de erros
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody CategoriaDTO objDto, @PathVariable Integer id) {
 		Categoria obj = service.fromDTO(objDto);
