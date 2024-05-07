@@ -16,6 +16,8 @@ import com.allan.cursomc.dto.ClienteDTO;
 import com.allan.cursomc.repositores.ClienteRepository;
 import com.allan.cursomc.resources.exceptions.FieldMessage;
 
+//Atualizar cliente 
+
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
 
 	@Override
@@ -39,6 +41,8 @@ public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate
 		Integer uriId = Integer.parseInt(map.get("id"));
 
 		List<FieldMessage> list = new ArrayList<>();
+
+		// Não permite atualizar para um email já existente
 
 		Cliente aux = repo.findByEmail(objDto.getEmail());
 		if (aux != null && !aux.getId().equals(uriId)) {

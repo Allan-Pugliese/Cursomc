@@ -1,6 +1,6 @@
 package com.allan.cursomc.services;
 
-import java.util.List;
+import java.util.List; 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,6 @@ public class ProdutoService {
 	@Autowired
 	private ProdutoRepository repo;
 
-	@SuppressWarnings("unused")
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 
